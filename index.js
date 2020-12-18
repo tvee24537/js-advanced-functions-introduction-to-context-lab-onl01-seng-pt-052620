@@ -22,3 +22,12 @@ function createTimeInEvent (record, datestamp) {
     })
     return record
 }
+
+function createTimeOutEvent (record, datestamp) {
+    record.timeOutEvents.push({
+        type: "TimeOut",
+        hour: parseInt(datestamp.split(" ")[1]),
+        date: datestamp.split(" ")[0]
+    })
+    return record
+}
