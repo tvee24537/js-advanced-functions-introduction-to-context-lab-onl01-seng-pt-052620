@@ -48,3 +48,11 @@ function allWagesFor (record) {
     let y = dates.map( x => wagesEarnedOnDate(record, x))
     return y.reduce( (total, z) => z + total )
 }
+
+function calculatePayroll (employees) {
+    return employees.reduce( (t, x) => t + allWagesFor(x), 0)
+}
+
+function findEmployeeByFirstName (srcArray, firstName) {
+    return srcArray.find( x => x.firstName === firstName)
+} 
