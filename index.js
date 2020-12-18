@@ -35,3 +35,16 @@ function createTimeOutEvent (record, datestamp) {
 function hoursWorkedOnDate (record, date){
     return (record.timeOutEvents.find( x => x.date === date).hour - record.timeInEvents.find( x => x.date === date).hour)/100
 }
+
+function wagesEarnedOnDate (record, date){
+    return hoursWorkedOnDate(record, date) * record.payPerHour
+}
+
+function allWagesFor (record) {
+    let dates = [] 
+    for (let x of record.timeInEvents){
+        dates.push(x.date)
+    }
+    let y = dates.map( x => wagesEarnedOnDate(record, x))
+    return y.reduce( (total, z) => z + total )
+}
