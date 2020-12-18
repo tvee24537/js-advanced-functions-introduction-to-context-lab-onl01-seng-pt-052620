@@ -10,3 +10,6 @@ function createEmployeeRecord (employee) {
     }
 }
 
+function createEmployeeRecords (employees) {
+    return employees.map(x => createEmployeeRecord(x))
+}
