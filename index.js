@@ -31,3 +31,7 @@ function createTimeOutEvent (record, datestamp) {
     })
     return record
 }
+
+function hoursWorkedOnDate (record, date){
+    return (record.timeOutEvents.find( x => x.date === date).hour - record.timeInEvents.find( x => x.date === date).hour)/100
+}
